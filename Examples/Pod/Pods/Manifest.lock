@@ -1,0 +1,29 @@
+PODS:
+  - Combine-Realm-Hi (2.0.1-v1):
+    - RealmSwift (~> 10.0)
+  - Realm (10.53.1):
+    - Realm/Headers (= 10.53.1)
+  - Realm/Headers (10.53.1)
+  - RealmSwift (10.53.1):
+    - Realm (= 10.53.1)
+
+DEPENDENCIES:
+  - Combine-Realm-Hi (from `../../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Realm
+    - RealmSwift
+
+EXTERNAL SOURCES:
+  Combine-Realm-Hi:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Combine-Realm-Hi: 677ee1a6382a6cfccade06f472312a112e7f42a5
+  Realm: 82e4ea18703bf240dd443b5ceef68d6f9454ec49
+  RealmSwift: 79a910911b6a5663b7570517c8237e3dbd2b0783
+
+PODFILE CHECKSUM: fd95deae111f5fcce4982e80424d938fa2844ef6
+
+COCOAPODS: 1.14.3

@@ -41,6 +41,21 @@ public protocol NotificationEmitter {
 }
 
 extension List: NotificationEmitter {
+    public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.List<Element>>) -> Void) -> RealmSwift.NotificationToken {
+        return self.observe { changes in
+            switch changes {
+            case .initial(let results):
+                print("1初始结果: \(results)")
+            case .update(let results, let deletions, let insertions, let modifications):
+                print("1更新的结果: \(results)")
+                print("1删除的索引: \(deletions)")
+                print("1插入的索引: \(insertions)")
+                print("1修改的索引: \(modifications)")
+            case .error(let error):
+                print("1监听错误: \(error)")
+            }
+        }
+    }
     
     public func toAnyCollection() -> AnyRealmCollection<Element> {
         return AnyRealmCollection<Element>(self)
@@ -53,6 +68,22 @@ extension List: NotificationEmitter {
 }
 
 extension AnyRealmCollection: NotificationEmitter {
+    public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.AnyRealmCollection<Element>>) -> Void) -> RealmSwift.NotificationToken {
+        return self.observe { changes in
+            switch changes {
+            case .initial(let results):
+                print("2初始结果: \(results)")
+            case .update(let results, let deletions, let insertions, let modifications):
+                print("2更新的结果: \(results)")
+                print("2删除的索引: \(deletions)")
+                print("2插入的索引: \(insertions)")
+                print("2修改的索引: \(modifications)")
+            case .error(let error):
+                print("2监听错误: \(error)")
+            }
+        }
+    }
+    
     public func toAnyCollection() -> AnyRealmCollection<Element> {
         return AnyRealmCollection<ElementType>(self)
     }
@@ -64,6 +95,22 @@ extension AnyRealmCollection: NotificationEmitter {
 }
 
 extension Results: NotificationEmitter {
+    public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.Results<Element>>) -> Void) -> RealmSwift.NotificationToken {
+        return self.observe { changes in
+            switch changes {
+            case .initial(let results):
+                print("3初始结果: \(results)")
+            case .update(let results, let deletions, let insertions, let modifications):
+                print("3更新的结果: \(results)")
+                print("3删除的索引: \(deletions)")
+                print("3插入的索引: \(insertions)")
+                print("3修改的索引: \(modifications)")
+            case .error(let error):
+                print("3监听错误: \(error)")
+            }
+        }
+    }
+    
     public func toAnyCollection() -> AnyRealmCollection<Element> {
         return AnyRealmCollection<ElementType>(self)
     }
@@ -75,6 +122,22 @@ extension Results: NotificationEmitter {
 }
 
 extension LinkingObjects: NotificationEmitter {
+    public func observe(on queue: DispatchQueue?, _ block: @escaping (RealmSwift.RealmCollectionChange<RealmSwift.LinkingObjects<Element>>) -> Void) -> RealmSwift.NotificationToken {
+        return self.observe { changes in
+            switch changes {
+            case .initial(let results):
+                print("4初始结果: \(results)")
+            case .update(let results, let deletions, let insertions, let modifications):
+                print("4更新的结果: \(results)")
+                print("4删除的索引: \(deletions)")
+                print("4插入的索引: \(insertions)")
+                print("4修改的索引: \(modifications)")
+            case .error(let error):
+                print("4监听错误: \(error)")
+            }
+        }
+    }
+    
     public func toAnyCollection() -> AnyRealmCollection<Element> {
         return AnyRealmCollection<ElementType>(self)
     }
